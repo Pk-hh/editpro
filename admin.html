@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - EditPro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Edit<span>Pro</span> Admin</a>
+            <div class="nav-links">
+                <a href="index.html">Back to Site</a>
+                <a href="#" onclick="logout()" id="logout-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+
+        <!-- Login -->
+        <div id="login-container" class="auth-card">
+            <div class="section-title">
+                <h2>Admin Login</h2>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn-primary">Authenticate</button>
+            </form>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-container" class="dashboard-card" style="display: none;">
+            <div class="section-title">
+                <h2 id="form-title">Add New Tool</h2>
+                <button onclick="resetForm()" class="btn-delete"
+                    style="background:transparent; border:none; color: var(--text-color); display:none;"
+                    id="cancel-edit">Cancel Edit</button>
+            </div>
+
+            <form id="add-tool-form">
+                <input type="hidden" id="tool-id"> <!-- Hidden ID for Editing -->
+
+                <div class="form-group">
+                    <label>Tool Name</label>
+                    <input type="text" id="tool-name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" id="tool-category" class="form-control" required
+                        placeholder="e.g. AI, Video, Audio">
+                </div>
+
+                <div class="form-group">
+                    <label>Website URL</label>
+                    <input type="url" id="tool-url" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tool Icon/Image</label>
+                    <!-- File Input for Storage -->
+                    <label class="file-upload-label" for="tool-file">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Click to Upload Image
+                    </label>
+                    <input type="file" id="tool-file" accept="image/*" style="display: none;">
+
+                    <!-- Or URL fallback -->
+                    <input type="text" id="tool-icon-url" class="form-control" placeholder="Or paste Image URL..."
+                        style="margin-top: 0.5rem;">
+
+                    <img id="preview-img" class="preview-image" src="" alt="Preview">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="tool-desc" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" id="submit-btn"><i class="fa-solid fa-plus"></i> Add
+                    Tool</button>
+            </form>
+
+            <div class="section-title" style="margin-top: 3rem;">
+                <h3>Manage Library</h3>
+            </div>
+            <div id="admin-tools-list" class="admin-tool-list">
+                <div class="loading">Loading...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Firebase with Storage -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>
