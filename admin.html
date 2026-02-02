@@ -51,11 +51,54 @@
 
         <!-- Dashboard -->
         <div id="dashboard-container" class="dashboard-card" style="display: none;">
-            <div class="section-title">
+
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color);">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-total">0</h3>
+                        <p>Total Tools</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(234, 179, 8, 0.1); color: #eab308;">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-pending">0</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(168, 85, 247, 0.1); color: #a855f7;">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-categories">0</h3>
+                        <p>Categories</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top:2rem;">
                 <h2 id="form-title">Add New Tool</h2>
                 <button onclick="resetForm()" class="btn-delete"
                     style="background:transparent; border:none; color: var(--text-color); display:none;"
                     id="cancel-edit">Cancel Edit</button>
+            </div>
+
+            <!-- Pending Submissions Section -->
+            <div id="pending-section"
+                style="display:none; margin-bottom: 3rem; border: 1px solid var(--accent-secondary); padding: 1.5rem; border-radius: 12px; background: rgba(59, 130, 246, 0.05);">
+                <div class="section-title" style="margin-top:0;">
+                    <h3 style="color:var(--accent-secondary);"><i class="fa-solid fa-bell"></i> Pending Approvals</h3>
+                </div>
+                <div id="pending-tools-list" class="admin-tool-list">
+                    <!-- Injected by JS -->
+                </div>
             </div>
 
             <form id="add-tool-form">

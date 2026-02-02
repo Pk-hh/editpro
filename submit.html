@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Tool - EditPro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-layer-group"></i> Edit<span>Pro</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Discover</a>
+                <a href="submit.html" class="active">Submit Tool</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="submit-container">
+        <div class="submit-card">
+
+            <div id="submit-form-container">
+                <div class="form-header">
+                    <h2>Submit a Tool</h2>
+                    <p>Share a great editing tool with the community. All submissions are reviewed.</p>
+                </div>
+
+                <form id="public-submit-form">
+                    <div class="form-group">
+                        <label>Tool Name</label>
+                        <input type="text" id="tool-name" class="form-control" required placeholder="e.g. Remove.bg">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" id="tool-category" class="form-control" required
+                            placeholder="e.g. AI, Video, Audio, Design">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Website URL</label>
+                        <input type="url" id="tool-url" class="form-control" required placeholder="https://...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Icon URL (Optional)</label>
+                        <input type="url" id="tool-icon-url" class="form-control"
+                            placeholder="https://... (Right click image -> Copy Image Address)">
+                        <small style="color:#64748b; margin-top:0.4rem; display:block;">Or leave blank and we'll add it
+                            later.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="tool-desc" class="form-control" required
+                            placeholder="Briefly describe what this tool does..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Tool
+                    </button>
+                </form>
+            </div>
+
+            <div id="success-view" class="success-message">
+                <i class="fa-solid fa-circle-check success-icon"></i>
+                <h3>Submission Received!</h3>
+                <p style="color:#94a3b8; max-width:400px; margin: 1rem auto;">
+                    Thank you for contributing. Your tool has been submitted for review and will appear on the homepage
+                    once approved.
+                </p>
+                <button onclick="window.location.reload()" class="btn-submit"
+                    style="width:auto; margin: 2rem auto 0; background: transparent; border:1px solid var(--glass-border); color:white;">
+                    Submit Another
+                </button>
+                <br>
+                <a href="index.html"
+                    style="color:var(--accent-color); text-decoration:none; display:inline-block; margin-top:1rem;">Back
+                    to Home</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/submit.js"></script>
+
+</body>
+
+</html>
